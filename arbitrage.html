@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Арбитраж — CRYPTOLINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">C</span>CRYPTO<span class="accent">LINK</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="p2p.html">P2P</a>
+      <a href="exchange.html">Обменник</a>
+      <a href="analytics.html">Аналитика</a>
+      <a href="arbitrage.html">Арбитраж</a>
+      <a href="education.html">Обучение</a>
+      <a href="profile.html">Профиль</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" data-search title="Поиск"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button class="icon-btn" data-notifications title="Уведомления"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg><span class="badge-dot"></span></button>
+      <button class="icon-btn" data-theme-toggle title="Сменить тему"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
+      <button class="icon-btn mobile-toggle" data-mobile-toggle><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="section-tag">Арбитраж</span>
+    <h1>Межбиржевой арбитраж</h1>
+    <p>Сравнение цен на крупнейших биржах и выявление разницы курсов. Учитывайте комиссии, ликвидность и риски исполнения.</p>
+    <div class="demo-banner" style="max-width:640px"><strong>ДЕМО:</strong> Все цены и разница курсов демонстрационные. Никакие сделки не выполняются.</div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div class="card" style="padding:20px;border-left:3px solid var(--red);margin-bottom:28px">
+      <strong style="color:var(--red)">Внимание, риски:</strong>
+      <span style="color:var(--text-2);font-size:0.9rem"> Разница курсов не гарантирует прибыль. Необходимо учитывать торговые комиссии, ликвидность, задержки исполнения, проскальзывание и риски отмены сделок. Арбитраж требует капитала, времени и инфраструктуры.</span>
+    </div>
+
+    <div class="card" style="margin-bottom:24px;overflow:hidden">
+      <div style="padding:22px 26px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div class="coin"><div class="coin-icon btc">BTC</div><div><div class="coin-name">Bitcoin</div><div class="coin-sym">Сравнение цен между биржами</div></div></div>
+        <span class="pill pill-green">Макс. спред: 0.42%</span>
+      </div>
+      <div class="table-wrap" style="border:none;border-radius:0">
+        <table class="data"><thead><tr><th>Биржа</th><th>Цена покупки</th><th>Цена продажи</th><th>Спред</th><th>Комиссия</th><th>Объем 24ч</th></tr></thead><tbody id="btc-table"></tbody></table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:24px;overflow:hidden">
+      <div style="padding:22px 26px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div class="coin"><div class="coin-icon eth">ETH</div><div><div class="coin-name">Ethereum</div><div class="coin-sym">Сравнение цен между биржами</div></div></div>
+        <span class="pill pill-green">Макс. спред: 0.38%</span>
+      </div>
+      <div class="table-wrap" style="border:none;border-radius:0">
+        <table class="data"><thead><tr><th>Биржа</th><th>Цена покупки</th><th>Цена продажи</th><th>Спред</th><th>Комиссия</th><th>Объем 24ч</th></tr></thead><tbody id="eth-table"></tbody></table>
+      </div>
+    </div>
+
+    <div class="card" style="overflow:hidden">
+      <div style="padding:22px 26px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div class="coin"><div class="coin-icon usdt">USDT</div><div><div class="coin-name">Tether</div><div class="coin-sym">Возможности арбитража стейблкоинов</div></div></div>
+        <span class="pill pill-purple">Макс. спред: 0.08%</span>
+      </div>
+      <div class="table-wrap" style="border:none;border-radius:0">
+        <table class="data"><thead><tr><th>Биржа</th><th>Цена покупки</th><th>Цена продажи</th><th>Спред</th><th>Комиссия</th><th>Объем 24ч</th></tr></thead><tbody id="usdt-table"></tbody></table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container"><div class="footer-bottom" style="border:none;padding-top:0"><span>© 2024 CRYPTOLINK. Демо-сканер арбитража.</span><span>Арбитраж не лишен рисков. Комиссии, проскальзывание и ликвидность влияют на результат.</span></div></div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+const exchanges = ['Binance','Coinbase','Kraken','Bybit','OKX'];
+
+function genRows(base, spreadPct, feePct) {
+  return exchanges.map((ex, i) => {
+    const offset = (i - 2) * base * spreadPct / 100 / 4;
+    const buy = base + offset;
+    const sell = buy * (1 + spreadPct/100 * (i%2?1:0.7));
+    const spread = ((sell-buy)/buy*100).toFixed(4);
+    const vol = (Math.random()*20+2).toFixed(1);
+    return `
+      <tr>
+        <td><strong>${ex}</strong></td>
+        <td class="mono">${fmtUSD(buy, base>100?2:4)}</td>
+        <td class="mono">${fmtUSD(sell, base>100?2:4)}</td>
+        <td class="${spread>=0?'change-up':'change-down'}">${spread}%</td>
+        <td>${(feePct + i*0.02).toFixed(2)}%</td>
+        <td>$${vol}B</td>
+      </tr>`;
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('btc-table').innerHTML = genRows(67432.18, 0.42, 0.10);
+  document.getElementById('eth-table').innerHTML = genRows(3521.44, 0.38, 0.12);
+  document.getElementById('usdt-table').innerHTML = genRows(1.0, 0.08, 0.05);
+});
+</script>
+</body>
+</html>

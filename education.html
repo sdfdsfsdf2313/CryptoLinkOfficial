@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Обучение — CRYPTOLINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">C</span>CRYPTO<span class="accent">LINK</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="p2p.html">P2P</a>
+      <a href="exchange.html">Обменник</a>
+      <a href="analytics.html">Аналитика</a>
+      <a href="arbitrage.html">Арбитраж</a>
+      <a href="education.html">Обучение</a>
+      <a href="profile.html">Профиль</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" data-search title="Поиск"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button class="icon-btn" data-notifications title="Уведомления"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg><span class="badge-dot"></span></button>
+      <button class="icon-btn" data-theme-toggle title="Сменить тему"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
+      <button class="icon-btn mobile-toggle" data-mobile-toggle><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="section-tag">Обучение</span>
+    <h1>Центр обучения криптовалютам</h1>
+    <p>Понятные объяснения, руководства по безопасности и основы работы с цифровыми активами.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div class="grid grid-3" id="article-grid"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container"><div class="footer-bottom" style="border:none;padding-top:0"><span>© 2024 CRYPTOLINK. Демо-портал обучения.</span><span>Образовательный контент. Не является финансовой или юридической рекомендацией.</span></div></div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+const articles = [
+  { 
+    title:'Что такое криптовалюта?', 
+    tag:'Основы', 
+    excerpt:'Обзор цифровых активов, их отличия от фиатных валют и ключевые концепции.', 
+    color:'var(--green)',
+    text:'Криптовалюта — это цифровая или виртуальная валюта, которая использует криптографию для безопасности. В отличие от традиционных денег, криптовалюты децентрализованы и работают на технологии блокчейн. Они не контролируются правительствами или банками, что делает их независимыми, но и более волатильными.'
+  },
+  { 
+    title:'Как работает Bitcoin?', 
+    tag:'Блокчейн', 
+    excerpt:'Майнинг, блокчейн, транзакции и децентрализация — простыми словами.', 
+    color:'var(--green)',
+    text:'Bitcoin — первая криптовалюта, созданная в 2009 году. Транзакции записываются в блокчейн (цепочку блоков), который хранится у тысяч компьютеров по всему миру. Новые монеты создаются через майнинг — процесс решения сложных математических задач, который защищает сеть и подтверждает транзакции.'
+  },
+  { 
+    title:'Что такое USDT?', 
+    tag:'Стейблкоины', 
+    excerpt:'Стейблкоины, привязанные к доллару, их роль и риски.', 
+    color:'var(--purple)',
+    text:'USDT (Tether) — это стейблкоин, стоимость которого привязана к доллару США (1 USDT ≈ 1 USD). Он используется для быстрого перевода средств между биржами и защиты от волатильности. Однако важно понимать риски: доверие к USDT зависит от того, обеспечен ли он реальными резервами.'
+  },
+  { 
+    title:'Как работает P2P?', 
+    tag:'P2P', 
+    excerpt:'Прямые сделки между пользователями, эскроу и способы оплаты.', 
+    color:'var(--green)',
+    text:'P2P (Peer-to-Peer) — это торговля напрямую между людьми без посредников. Платформа выступает гарантом (эскроу): покупатель переводит деньги продавцу, а криптовалюта блокируется до подтверждения оплаты. Это позволяет покупать крипту за фиат (рубли, доллары) удобным способом.'
+  },
+  { 
+    title:'Как безопасно покупать криптовалюту?', 
+    tag:'Безопасность', 
+    excerpt:'Проверка продавцов, 2FA, защита аккаунта и фишинга.', 
+    color:'var(--red)',
+    text:'Всегда проверяйте рейтинг и историю продавца. Включайте двухфакторную аутентификацию (2FA) на бирже и почте. Никогда не переводите деньги напрямую на карту без использования эскроу-сервиса. Остерегайтесь фишинговых ссылок и не сообщайте никому свои пароли или seed-фразы.'
+  },
+  { 
+    title:'Что такое блокчейн?', 
+    tag:'Блокчейн', 
+    excerpt:'Распределённый реестр, консенсус и неизменяемость записей.', 
+    color:'var(--purple)',
+    text:'Блокчейн — это распределенная база данных, где каждая запись (блок) связана с предыдущей. Данные невозможно изменить задним числом. Сеть поддерживается тысячами компьютеров, которые достигают консенсуса. Это основа всех криптовалют и смарт-контрактов.'
+  },
+  { 
+    title:'Как работает арбитраж?', 
+    tag:'Арбитраж', 
+    excerpt:'Разница цен, комиссии, ликвидность и риски исполнения.', 
+    color:'var(--green)',
+    text:'Арбитраж — это заработок на разнице цен одной и той же монеты на разных биржах. Купил дешевле, продал дороже. Звучит просто, но есть подводные камни: комиссии за ввод/вывод, низкая ликвидность, задержки переводов и риски отмены ордера могут съесть всю прибыль.'
+  },
+  { 
+    title:'Как защитить криптокошелёк?', 
+    tag:'Безопасность', 
+    excerpt:'Приватные ключи, аппаратные кошельки и правила гигиены.', 
+    color:'var(--red)',
+    text:'Главное правило: не ваши ключи — не ваши монеты. Если вы храните много средств, используйте аппаратный кошелек (Ledger, Trezor). Никогда не вводите seed-фразу (12-24 слова) на сайтах или в приложениях. Храните фразу на бумаге в надежном месте, а не в облаке.'
+  }
+];
+
+function renderArticles() {
+  document.getElementById('article-grid').innerHTML = articles.map(a => `
+    <div class="card card-hover" style="padding:26px;display:flex;flex-direction:column">
+      <div style="width:48px;height:48px;border-radius:12px;background:var(--bg-3);display:grid;place-items:center;margin-bottom:16px;color:${a.color}">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      </div>
+      <span class="pill" style="align-self:flex-start;margin-bottom:12px;color:${a.color};border-color:${a.color}">${a.tag}</span>
+      <h3 style="font-size:1.05rem;margin-bottom:8px">${a.title}</h3>
+      <p style="color:var(--text-2);font-size:0.88rem;flex:1">${a.excerpt}</p>
+      <button class="btn btn-secondary btn-sm" style="align-self:flex-start;margin-top:16px" onclick="readArticle(${articles.indexOf(a)})">Читать →</button>
+    </div>
+  `).join('');
+}
+
+function readArticle(index) {
+  const article = articles[index];
+  openModal(`
+    <div style="margin-bottom:16px">
+      <span class="pill" style="color:${article.color};border-color:${article.color}">${article.tag}</span>
+    </div>
+    <h3 style="margin-bottom:16px">${article.title}</h3>
+    <p style="color:var(--text-2);font-size:0.95rem;line-height:1.7;margin-bottom:24px">${article.text}</p>
+    <button class="btn btn-primary btn-block" onclick="closeModal()">Понятно, закрыть</button>
+  `);
+}
+
+document.addEventListener('DOMContentLoaded', renderArticles);
+</script>
+</body>
+</html>

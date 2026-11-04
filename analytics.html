@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рыночная аналитика — CRYPTOLINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">C</span>CRYPTO<span class="accent">LINK</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Главная</a><a href="p2p.html">P2P</a><a href="exchange.html">Обменник</a><a href="analytics.html">Аналитика</a><a href="arbitrage.html">Арбитраж</a><a href="education.html">Обучение</a><a href="profile.html">Профиль</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" data-search><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button class="icon-btn" data-notifications><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg><span class="badge-dot"></span></button>
+      <button class="icon-btn" data-theme-toggle><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
+      <button class="icon-btn mobile-toggle" data-mobile-toggle><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="section-tag">Аналитика</span>
+    <h1>Рыночная аналитика</h1>
+    <p>Интерактивные графики, рыночная капитализация, объёмы торгов и доминирование BTC.</p>
+    <div class="demo-banner" style="max-width:640px"><strong>ДЕМО:</strong> Данные имитационные и предназначены для иллюстрации интерфейса.</div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div class="grid grid-4" style="margin-bottom:28px">
+      <div class="card stat-card card-hover"><div class="stat-label">Общая капитализация</div><div class="stat-value" style="margin-top:6px">$2.41T</div><span class="change-up" style="font-size:0.82rem">▲ 1.84%</span></div>
+      <div class="card stat-card card-hover"><div class="stat-label">Объем 24ч</div><div class="stat-value" style="margin-top:6px">$86.2B</div><span class="change-up" style="font-size:0.82rem">▲ 4.12%</span></div>
+      <div class="card stat-card card-hover"><div class="stat-label">Доминирование BTC</div><div class="stat-value" style="margin-top:6px">54.7%</div><span class="change-down" style="font-size:0.82rem">▼ 0.32%</span></div>
+      <div class="card stat-card card-hover"><div class="stat-label">Активных монет</div><div class="stat-value" style="margin-top:6px">12,481</div><span style="color:var(--text-3);font-size:0.82rem">отслеживается</span></div>
+    </div>
+
+    <div class="grid grid-2" style="margin-bottom:28px">
+      <div class="card" style="padding:28px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h3 style="font-size:1.05rem">Bitcoin (BTC)</h3><span class="pill pill-green">$67 432,18 ▲ 2.34%</span></div><canvas id="btc-chart" height="220"></canvas></div>
+      <div class="card" style="padding:28px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h3 style="font-size:1.05rem">Ethereum (ETH)</h3><span class="pill pill-green">$3 521,44 ▲ 1.12%</span></div><canvas id="eth-chart" height="220"></canvas></div>
+    </div>
+
+    <div class="card" style="overflow:hidden">
+      <div style="padding:22px 26px;border-bottom:1px solid var(--border)"><h3 style="font-size:1.05rem">Цены криптовалют</h3><p style="font-size:0.85rem;color:var(--text-3)">Нажмите на заголовки столбцов для сортировки.</p></div>
+      <div class="table-wrap" style="border:none;border-radius:0">
+        <table class="data">
+          <thead><tr><th>#</th><th>Название</th><th class="sortable" data-sort="price">Цена <span class="sort-arrow">↕</span></th><th class="sortable" data-sort="change">Изм. 24ч <span class="sort-arrow">↕</span></th><th class="sortable" data-sort="mcap">Капитализация <span class="sort-arrow">↕</span></th><th class="sortable" data-sort="volume">Объем (24ч) <span class="sort-arrow">↕</span></th></tr></thead>
+          <tbody id="coin-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div class="footer-bottom" style="border:none;padding-top:0"><span>© 2024 CRYPTOLINK. Демо-аналитика.</span><span>Рыночные данные симулированы для демонстрации.</span></div></div></footer>
+
+<script src="app.js"></script>
+<script>
+const coins = [
+  { name:'Bitcoin', sym:'BTC', cls:'btc', price:67432.18, change:2.34, mcap:1.32e12, volume:38.4e9 },
+  { name:'Ethereum', sym:'ETH', cls:'eth', price:3521.44, change:1.12, mcap:4.23e11, volume:18.2e9 },
+  { name:'Tether', sym:'USDT', cls:'usdt', price:1.00, change:0.01, mcap:1.12e11, volume:42.1e9 },
+  { name:'BNB', sym:'BNB', cls:'bnb', price:598.21, change:0.76, mcap:8.9e10, volume:1.7e9 },
+  { name:'Solana', sym:'SOL', cls:'sol', price:172.38, change:-0.84, mcap:7.84e10, volume:3.9e9 },
+  { name:'XRP', sym:'XRP', cls:'xrp', price:0.62, change:-1.24, mcap:3.4e10, volume:1.2e9 },
+  { name:'Cardano', sym:'ADA', cls:'ada', price:0.48, change:3.12, mcap:1.7e10, volume:420e6 },
+  { name:'Dogecoin', sym:'DOGE', cls:'doge', price:0.16, change:-2.05, mcap:2.3e10, volume:890e6 }
+];
+let sortKey = 'mcap', sortDir = -1;
+
+function renderTable() {
+  const sorted = [...coins].sort((a,b) => (a[sortKey] - b[sortKey]) * sortDir);
+  document.getElementById('coin-tbody').innerHTML = sorted.map((c,i) => `
+    <tr><td style="color:var(--text-3)">${i+1}</td><td><div class="coin"><div class="coin-icon ${c.cls}">${c.sym.slice(0,3)}</div><div><div class="coin-name">${c.name}</div><div class="coin-sym">${c.sym}</div></div></div></td><td class="mono">${fmtUSD(c.price, c.price<10?4:2)}</td><td class="${c.change>=0?'change-up':'change-down'}">${fmtPct(c.change)}</td><td>${fmtCompact(c.mcap)}</td><td>${fmtCompact(c.volume)}</td></tr>
+  `).join('');
+}
+
+function lineChart(canvasId, points, color) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.clientWidth, h = 220;
+  canvas.width = w*dpr; canvas.height = h*dpr; canvas.style.height = h+'px'; ctx.scale(dpr,dpr);
+  const min = Math.min(...points), max = Math.max(...points);
+  const pad = 10; const xStep = (w-pad*2)/(points.length-1);
+  const yFor = v => pad + (max-v)/(max-min)*(h-pad*2);
+  ctx.beginPath(); points.forEach((v,i)=>{ const x=pad+i*xStep, y=yFor(v); i?ctx.lineTo(x,y):ctx.moveTo(x,y); });
+  ctx.strokeStyle = color; ctx.lineWidth = 2.5; ctx.shadowColor = color; ctx.shadowBlur = 10; ctx.stroke(); ctx.shadowBlur = 0;
+  const grad = ctx.createLinearGradient(0,0,0,h);
+  grad.addColorStop(0, color.replace('1)','0.25)')); grad.addColorStop(1, color.replace('1)','0)'));
+  ctx.lineTo(w-pad,h-pad); ctx.lineTo(pad,h-pad); ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderTable();
+  document.querySelectorAll('th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const key = th.dataset.sort;
+      if (sortKey === key) sortDir *= -1; else { sortKey = key; sortDir = -1; }
+      renderTable();
+    });
+  });
+  const btcPts = [61200,62800,61900,64500,63900,65200,64800,66100,65400,66800,66000,67432];
+  const ethPts = [3300,3350,3320,3400,3380,3450,3420,3480,3460,3510,3490,3521];
+  lineChart('btc-chart', btcPts, 'rgba(0,255,136,1)');
+  lineChart('eth-chart', ethPts, 'rgba(139,92,246,1)');
+  window.addEventListener('resize', () => { lineChart('btc-chart', btcPts, 'rgba(0,255,136,1)'); lineChart('eth-chart', ethPts, 'rgba(139,92,246,1)'); });
+});
+</script>
+</body>
+</html>

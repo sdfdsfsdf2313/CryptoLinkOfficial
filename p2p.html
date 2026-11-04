@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2P Маркет — CRYPTOLINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">C</span>CRYPTO<span class="accent">LINK</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="p2p.html">P2P</a>
+      <a href="exchange.html">Обменник</a>
+      <a href="analytics.html">Аналитика</a>
+      <a href="arbitrage.html">Арбитраж</a>
+      <a href="education.html">Обучение</a>
+      <a href="profile.html">Профиль</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" data-search title="Поиск"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button class="icon-btn" data-notifications title="Уведомления"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg><span class="badge-dot"></span></button>
+      <button class="icon-btn" data-theme-toggle title="Сменить тему"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
+      <button class="icon-btn mobile-toggle" data-mobile-toggle><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="section-tag">P2P Маркет</span>
+    <h1>P2P Торговля</h1>
+    <p>Покупайте и продавайте криптовалюту напрямую с другими пользователями. Выбирайте валюту, способ оплаты и продавца с лучшим курсом.</p>
+    <div class="demo-banner" style="max-width:640px"><strong>ДЕМО:</strong> Все объявления, продавцы и сделки — демонстрационные. Реальные платежи не проводятся.</div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div style="display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap">
+      <button class="btn btn-primary" id="tab-buy" onclick="setMode('buy')">Купить USDT</button>
+      <button class="btn btn-secondary" id="tab-sell" onclick="setMode('sell')">Продать USDT</button>
+    </div>
+
+    <div class="card" style="padding:22px;margin-bottom:24px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;align-items:end">
+        <div class="field" style="margin:0">
+          <label>Фиатная валюта</label>
+          <select class="select" id="f-currency">
+            <option value="USD">USD — Доллар США</option>
+            <option value="EUR">EUR — Евро</option>
+            <option value="GBP">GBP — Фунт стерлингов</option>
+            <option value="KZT">KZT — Казахстанский тенге</option>
+            <option value="RUB">RUB — Российский рубль</option>
+          </select>
+        </div>
+        <div class="field" style="margin:0">
+          <label>Способ оплаты</label>
+          <select class="select" id="f-payment">
+            <option>Все способы</option>
+            <option>Банковский перевод</option>
+            <option>Карта</option>
+            <option>Wise</option>
+            <option>PayPal</option>
+          </select>
+        </div>
+        <div class="field" style="margin:0">
+          <label>Мин. рейтинг продавца</label>
+          <select class="select" id="f-rating">
+            <option value="0">Любой рейтинг</option>
+            <option value="95">95%+</option>
+            <option value="98">98%+</option>
+            <option value="99">99%+</option>
+          </select>
+        </div>
+        <div class="field" style="margin:0">
+          <label>Поиск</label>
+          <input class="input" id="f-search" placeholder="Никнейм продавца...">
+        </div>
+      </div>
+    </div>
+
+    <div id="offers-list" style="display:flex;flex-direction:column;gap:14px"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border:none;padding-top:0">
+      <span>© 2024 CRYPTOLINK. Демо P2P-маркетплейс.</span>
+      <span>Предупреждение: P2P-торговля связана с риском контрагента. Всегда проверяйте продавцов.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+let mode = 'buy';
+const merchants = [
+  { name:'CryptoKing_88', rating:99, trades:12847, price:1.002, min:50, max:5000, method:'Банковский перевод', verified:true },
+  { name:'FastTrader', rating:98, trades:8921, price:1.003, min:100, max:3000, method:'Карта', verified:true },
+  { name:'USDT_Master', rating:97, trades:15320, price:1.001, min:20, max:10000, method:'Банковский перевод', verified:true },
+  { name:'DigitalNomad', rating:96, trades:4210, price:1.004, min:30, max:2000, method:'Wise', verified:false },
+  { name:'BlockBridge', rating:99, trades:9876, price:1.0005, min:200, max:8000, method:'Банковский перевод', verified:true },
+  { name:'SafeDeal_Pro', rating:95, trades:3120, price:1.005, min:10, max:1500, method:'PayPal', verified:false }
+];
+
+// Курсы фиата к USD (демо-значения)
+const fiatRates = {
+  USD: { rate: 1, symbol: '$' },
+  EUR: { rate: 0.92, symbol: '€' },
+  GBP: { rate: 0.79, symbol: '£' },
+  KZT: { rate: 450.0, symbol: '₸' },
+  RUB: { rate: 92.5, symbol: '₽' }
+};
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('tab-buy').className = 'btn ' + (m==='buy'?'btn-primary':'btn-secondary');
+  document.getElementById('tab-sell').className = 'btn ' + (m==='sell'?'btn-primary':'btn-secondary');
+  renderOffers();
+}
+
+function renderOffers() {
+  const ratingMin = parseInt(document.getElementById('f-rating').value) || 0;
+  const search = document.getElementById('f-search').value.toLowerCase();
+  const curr = document.getElementById('f-currency').value;
+  const fiat = fiatRates[curr];
+  
+  const list = document.getElementById('offers-list');
+
+  const filtered = merchants.filter(m => m.rating >= ratingMin && (!search || m.name.toLowerCase().includes(search)));
+
+  if (!filtered.length) {
+    list.innerHTML = '<div class="card" style="padding:40px;text-align:center;color:var(--text-2)">Нет предложений, соответствующих вашим фильтрам.</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(m => {
+    // Конвертируем цену и лимиты в выбранную валюту
+    const basePrice = mode === 'buy' ? m.price : (2 - m.price);
+    const displayPrice = (basePrice * fiat.rate).toFixed(2);
+    const displayMin = Math.round(m.min * fiat.rate);
+    const displayMax = Math.round(m.max * fiat.rate);
+    
+    return `
+    <div class="card card-hover" style="padding:22px">
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:12px;min-width:180px;flex:1">
+          <div class="coin-icon" style="width:44px;height:44px;background:linear-gradient(135deg,var(--purple),var(--purple-2));font-size:1rem">${m.name.charAt(0)}</div>
+          <div>
+            <div style="font-weight:700;display:flex;align-items:center;gap:6px">${m.name}${m.verified ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>' : ''}</div>
+            <div style="font-size:0.8rem;color:var(--text-3)">${m.trades.toLocaleString('ru-RU')} сделок · ★ ${m.rating}%</div>
+          </div>
+        </div>
+        <div style="min-width:120px">
+          <div style="font-size:0.78rem;color:var(--text-3)">Цена</div>
+          <div style="font-weight:800;font-size:1.15rem;color:var(--green)">${displayPrice} ${curr}</div>
+        </div>
+        <div style="min-width:140px">
+          <div style="font-size:0.78rem;color:var(--text-3)">Лимиты</div>
+          <div style="font-weight:600;font-size:0.9rem">${fiat.symbol}${displayMin} – ${fiat.symbol}${displayMax.toLocaleString('ru-RU')}</div>
+        </div>
+        <div style="min-width:140px">
+          <div style="font-size:0.78rem;color:var(--text-3)">Оплата</div>
+          <div style="font-size:0.88rem">${m.method}</div>
+        </div>
+        <div><button class="btn ${mode==='buy'?'btn-primary':'btn-purple'} btn-sm" onclick="startDeal('${m.name}','${mode}','${curr}')">${mode==='buy'?'Купить':'Продать'} USDT</button></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function startDeal(name, m, curr) {
+  openModal(`
+    <h3>${m==='buy'?'Купить':'Продать'} USDT — ${name}</h3>
+    <div class="field">
+      <label>Сумма (${curr})</label>
+      <input class="input" id="deal-amount" type="number" placeholder="Введите сумму" min="1">
+      <span class="field-error" id="deal-err">Пожалуйста, введите корректную сумму.</span>
+    </div>
+    <div style="padding:14px;border-radius:10px;background:var(--bg-3);margin-bottom:16px;font-size:0.85rem;color:var(--text-2)">
+      Это демонстрация. Реальная транзакция не будет выполнена.
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-primary btn-block" onclick="confirmDeal()">Подтвердить демо-сделку</button>
+      <button class="btn btn-secondary" onclick="closeModal()">Отмена</button>
+    </div>
+  `);
+}
+
+function confirmDeal() {
+  const amt = document.getElementById('deal-amount');
+  const err = document.getElementById('deal-err');
+  if (!amt.value || Number(amt.value) <= 0) {
+    amt.classList.add('error'); err.classList.add('show'); return;
+  }
+  closeModal(); toast('Демо-сделка успешно создана. Это симуляция.');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  ['f-rating','f-search','f-payment','f-currency'].forEach(id => document.getElementById(id)?.addEventListener('input', renderOffers));
+  renderOffers();
+});
+</script>
+</body>
+</html>

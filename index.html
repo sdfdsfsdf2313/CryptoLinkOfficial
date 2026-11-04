@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRYPTOLINK — Твой путь в криптовалюты</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">C</span>CRYPTO<span class="accent">LINK</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="p2p.html">P2P</a>
+      <a href="exchange.html">Обменник</a>
+      <a href="analytics.html">Аналитика</a>
+      <a href="arbitrage.html">Арбитраж</a>
+      <a href="education.html">Обучение</a>
+      <a href="profile.html">Профиль</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" data-search title="Поиск">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <button class="icon-btn" data-notifications title="Уведомления">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+        <span class="badge-dot"></span>
+      </button>
+      <button class="icon-btn" data-theme-toggle title="Сменить тему">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+      <button class="icon-btn mobile-toggle" data-mobile-toggle>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container" style="padding-top:64px;padding-bottom:48px">
+    <div class="animate-in">
+      <span class="pill pill-green" style="margin-bottom:20px">● ЖИВАЯ ДЕМО-ПЛАТФОРМА · 2024</span>
+    </div>
+    <h1 class="animate-in delay-1" style="font-size:clamp(2.2rem,6vw,4.2rem);font-weight:900;max-width:900px;margin-bottom:20px">
+      CRYPTOLINK — <span class="gradient-text">Твой путь в криптовалюты.</span>
+    </h1>
+    <p class="animate-in delay-2" style="font-size:1.15rem;color:var(--text-2);max-width:680px;margin-bottom:32px">
+      Покупай, продавай, обменивай и анализируй криптовалюты в одном месте. P2P-торговля, обменник, рыночная аналитика и арбитраж — всё в единой платформе.
+    </p>
+    <div class="animate-in delay-3" style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px">
+      <a href="p2p.html" class="btn btn-primary">Начать P2P-торговлю →</a>
+      <a href="analytics.html" class="btn btn-secondary">Рыночная аналитика</a>
+      <a href="exchange.html" class="btn btn-purple">Открыть обменник</a>
+    </div>
+    <div class="animate-in delay-4 demo-banner" style="max-width:760px">
+      <strong>ДЕМО-РЕЖИМ:</strong> Все сделки, курсы и платежи на платформе — демонстрационные. Реальные транзакции не выполняются.
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Рынки</span>
+      <h2 class="section-title">Популярные криптовалюты</h2>
+      <p class="section-sub">Демонстрационные цены, обновляемые в реальном времени для иллюстрации интерфейса.</p>
+    </div>
+    <div class="grid grid-4" id="coins-grid"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:stretch">
+      <div class="card" style="padding:28px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+          <div>
+            <h3 style="font-size:1.1rem;margin-bottom:4px">График рынка Bitcoin</h3>
+            <span style="font-size:0.82rem;color:var(--text-3)">BTC / USD · 7 дней (демо)</span>
+          </div>
+          <span class="pill pill-green" id="btc-price-pill">$67 432,18</span>
+        </div>
+        <canvas id="marketChart" height="240"></canvas>
+      </div>
+      <div class="grid grid-2" style="gap:20px">
+        <div class="card stat-card card-hover">
+          <div class="stat-value gradient-text">2.4 млн+</div>
+          <div class="stat-label">Активных пользователей</div>
+        </div>
+        <div class="card stat-card card-hover">
+          <div class="stat-value gradient-text">$18.6 млрд</div>
+          <div class="stat-label">Объем торгов за 24ч</div>
+        </div>
+        <div class="card stat-card card-hover">
+          <div class="stat-value gradient-text">180+</div>
+          <div class="stat-label">Поддерживаемых стран</div>
+        </div>
+        <div class="card stat-card card-hover">
+          <div class="stat-value gradient-text">99.98%</div>
+          <div class="stat-label">Бесперебойная работа</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Почему CRYPTOLINK</span>
+      <h2 class="section-title">Создано для профессионалов</h2>
+      <p class="section-sub">Современная инфраструктура, безопасность и скорость для работы с цифровыми активами.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card-hover" style="padding:28px">
+        <div style="margin-bottom:14px;color:var(--green)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        </div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px">Мгновенное исполнение</h3>
+        <p style="color:var(--text-2);font-size:0.9rem">Интуитивный интерфейс и мгновенный отклик на всех устройствах.</p>
+      </div>
+      <div class="card card-hover" style="padding:28px">
+        <div style="margin-bottom:14px;color:var(--green)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        </div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px">Банковская безопасность</h3>
+        <p style="color:var(--text-2);font-size:0.9rem">Двухфакторная аутентификация, шифрование и защита аккаунта.</p>
+      </div>
+      <div class="card card-hover" style="padding:28px">
+        <div style="margin-bottom:14px;color:var(--green)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        </div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px">Глобальная P2P-сеть</h3>
+        <p style="color:var(--text-2);font-size:0.9rem">Покупка и продажа с локальными способами оплаты и валютой.</p>
+      </div>
+      <div class="card card-hover" style="padding:28px">
+        <div style="margin-bottom:14px;color:var(--purple)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px">Продвинутая аналитика</h3>
+        <p style="color:var(--text-2);font-size:0.9rem">Графики, метрики и интерактивные инструменты для анализа рынка.</p>
+      </div>
+      <div class="card card-hover" style="padding:28px">
+        <div style="margin-bottom:14px;color:var(--purple)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+        </div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px">Мгновенный обмен</h3>
+        <p style="color:var(--text-2);font-size:0.9rem">Обмен криптовалют по расчётному курсу с прозрачной комиссией.</p>
+      </div>
+      <div class="card card-hover" style="padding:28px">
+        <div style="margin-bottom:14px;color:var(--purple)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+        </div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px">Сканер арбитража</h3>
+        <p style="color:var(--text-2);font-size:0.9rem">Сравнение цен между биржами и выявление разницы курсов.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">C</span>CRYPTO<span class="accent">LINK</span></a>
+        <p>Ваш путь в мир криптовалют. P2P, обменник, аналитика и обучение — всё в одном месте.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Платформа</h4>
+        <a href="p2p.html">P2P Маркет</a>
+        <a href="exchange.html">Обменник</a>
+        <a href="analytics.html">Аналитика</a>
+        <a href="arbitrage.html">Арбитраж</a>
+      </div>
+      <div class="footer-col">
+        <h4>Ресурсы</h4>
+        <a href="education.html">Обучение</a>
+        <a href="education.html">Безопасность</a>
+        <a href="#" onclick="event.preventDefault();toast('Демо: Условия использования')">Условия использования</a>
+        <a href="#" onclick="event.preventDefault();toast('Демо: Политика конфиденциальности')">Политика конфиденциальности</a>
+      </div>
+      <div class="footer-col">
+        <h4>Аккаунт</h4>
+        <a href="profile.html">Профиль</a>
+        <a href="profile.html">Безопасность</a>
+        <a href="profile.html">Верификация</a>
+        <a href="#" onclick="event.preventDefault();toast('Демо: Раскрытие рисков')">Раскрытие рисков</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 CRYPTOLINK. Все права защищены. Демо-проект.</span>
+      <span>Предупреждение о рисках: криптовалюты волатильны. Не инвестируйте больше, чем готовы потерять.</span>
+    </div>
+    <div class="risk-note">
+      <strong>Предупреждение о рисках:</strong> Демонстрационная платформа. Все цены, сделки и данные носят иллюстративный характер. Криптовалюты крайне волатильны; торговля сопряжена с риском полной потери средств. Не подключайте реальные кошельки и не переводите реальные средства.
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+const coinsData = [
+  { name:'Bitcoin', sym:'BTC', cls:'btc', price:67432.18, change:2.34, mcap:1.32e12 },
+  { name:'Ethereum', sym:'ETH', cls:'eth', price:3521.44, change:1.12, mcap:4.23e11 },
+  { name:'Tether', sym:'USDT', cls:'usdt', price:1.00, change:0.01, mcap:1.12e11 },
+  { name:'Solana', sym:'SOL', cls:'sol', price:172.38, change:-0.84, mcap:7.84e10 }
+];
+
+function renderCoins() {
+  const grid = document.getElementById('coins-grid');
+  grid.innerHTML = coinsData.map(c => `
+    <div class="card card-hover" style="padding:22px">
+      <div class="coin" style="margin-bottom:16px">
+        <div class="coin-icon ${c.cls}">${c.sym.slice(0,3)}</div>
+        <div>
+          <div class="coin-name">${c.name}</div>
+          <div class="coin-sym">${c.sym}</div>
+        </div>
+      </div>
+      <div style="font-size:1.4rem;font-weight:800;letter-spacing:-0.02em">${fmtUSD(c.price)}</div>
+      <div style="margin-top:8px;font-size:0.85rem">
+        <span class="${c.change>=0?'change-up':'change-down'}">${c.change>=0?'▲':'▼'} ${fmtPct(c.change)}</span>
+        <span style="color:var(--text-3);margin-left:10px">Кап. ${fmtCompact(c.mcap)}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderTicker() {
+  const track = document.getElementById('ticker-track');
+  const items = [
+    {s:'BTC',p:67432.18,c:2.34},{s:'ETH',p:3521.44,c:1.12},
+    {s:'SOL',p:172.38,c:-0.84},{s:'USDT',p:1.00,c:0.01},
+    {s:'BNB',p:598.21,c:0.76},{s:'XRP',p:0.62,c:-1.24},
+    {s:'ADA',p:0.48,c:3.12},{s:'DOGE',p:0.16,c:-2.05}
+  ];
+  const html = items.map(i => `
+    <div class="ticker-item">
+      <span class="sym">${i.s}</span>
+      <span>${fmtUSD(i.p, i.p<10?3:2)}</span>
+      <span class="${i.c>=0?'change-up':'change-down'}">${fmtPct(i.c)}</span>
+    </div>
+  `).join('');
+  track.innerHTML = html + html;
+}
+
+function drawMarketChart() {
+  const canvas = document.getElementById('marketChart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.clientWidth, h = 240;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  canvas.style.height = h + 'px';
+  ctx.scale(dpr, dpr);
+
+  const points = [61200,62800,61900,64500,63900,65200,64800,66100,65400,66800,66000,67432];
+  const min = Math.min(...points) - 800;
+  const max = Math.max(...points) + 800;
+  const pad = 12;
+  const xStep = (w - pad*2) / (points.length - 1);
+  const yFor = v => pad + (max - v)/(max-min) * (h - pad*2);
+
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad + i*(h-pad*2)/4;
+    ctx.beginPath(); ctx.moveTo(pad,y); ctx.lineTo(w-pad,y); ctx.stroke();
+  }
+
+  const grad = ctx.createLinearGradient(0,0,0,h);
+  grad.addColorStop(0,'rgba(0,255,136,0.28)');
+  grad.addColorStop(1,'rgba(0,255,136,0)');
+  ctx.beginPath();
+  points.forEach((v,i) => {
+    const x = pad + i*xStep;
+    const y = yFor(v);
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.lineTo(w-pad, h-pad); ctx.lineTo(pad, h-pad); ctx.closePath();
+  ctx.fillStyle = grad; ctx.fill();
+
+  ctx.beginPath();
+  points.forEach((v,i) => {
+    const x = pad + i*xStep;
+    const y = yFor(v);
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle = '#00ff88';
+  ctx.lineWidth = 2.5;
+  ctx.shadowColor = 'rgba(0,255,136,0.6)';
+  ctx.shadowBlur = 12;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  const lastX = pad + (points.length-1)*xStep;
+  const lastY = yFor(points[points.length-1]);
+  ctx.beginPath();
+  ctx.arc(lastX, lastY, 5, 0, Math.PI*2);
+  ctx.fillStyle = '#00ff88';
+  ctx.fill();
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCoins();
+  renderTicker();
+  drawMarketChart();
+  window.addEventListener('resize', drawMarketChart);
+});
+</script>
+</body>
+</html>

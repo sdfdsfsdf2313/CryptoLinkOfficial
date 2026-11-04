@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Криптообменник — CRYPTOLINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">C</span>CRYPTO<span class="accent">LINK</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Главная</a><a href="p2p.html">P2P</a><a href="exchange.html">Обменник</a><a href="analytics.html">Аналитика</a><a href="arbitrage.html">Арбитраж</a><a href="education.html">Обучение</a><a href="profile.html">Профиль</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" data-search><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button class="icon-btn" data-notifications><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg><span class="badge-dot"></span></button>
+      <button class="icon-btn" data-theme-toggle><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
+      <button class="icon-btn mobile-toggle" data-mobile-toggle><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="section-tag">Обменник</span>
+    <h1>Криптовалютный обменник</h1>
+    <p>Мгновенный обмен криптовалют по расчётному курсу. Прозрачная комиссия и удобный интерфейс.</p>
+    <div class="demo-banner" style="max-width:640px"><strong>ДЕМО:</strong> Курсы и обмены демонстрационные. Реальные транзакции не выполняются.</div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:start">
+      <div class="card" style="padding:28px">
+        <h3 style="font-size:1.15rem;margin-bottom:20px">Калькулятор обмена</h3>
+        <div class="field">
+          <label>Вы отправляете</label>
+          <div style="display:flex;gap:10px">
+            <input class="input" id="send-amount" type="number" value="1000" min="0" step="any">
+            <select class="select" id="send-currency" style="max-width:140px"><option value="USDT">USDT</option><option value="BTC">BTC</option><option value="ETH">ETH</option><option value="SOL">SOL</option></select>
+          </div>
+          <span class="field-error" id="send-err">Введите корректную сумму.</span>
+        </div>
+        <div style="text-align:center;margin:8px 0;color:var(--text-3);font-size:1.2rem">⇅</div>
+        <div class="field">
+          <label>Вы получаете</label>
+          <div style="display:flex;gap:10px">
+            <input class="input" id="recv-amount" type="text" readonly style="background:var(--bg-2)">
+            <select class="select" id="recv-currency" style="max-width:140px"><option value="BTC">BTC</option><option value="USDT">USDT</option><option value="ETH">ETH</option><option value="SOL">SOL</option></select>
+          </div>
+        </div>
+        <div style="padding:16px;border-radius:10px;background:var(--bg-3);margin-bottom:20px;font-size:0.88rem">
+          <div style="display:flex;justify-content:space-between;padding:4px 0"><span style="color:var(--text-2)">Курс</span><span id="rate-display" class="mono">—</span></div>
+          <div style="display:flex;justify-content:space-between;padding:4px 0"><span style="color:var(--text-2)">Комиссия (0.5%)</span><span id="fee-display" class="mono">—</span></div>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="doExchange()">Обменять сейчас (Демо)</button>
+      </div>
+      <div class="card" style="padding:28px">
+        <h3 style="font-size:1.15rem;margin-bottom:16px">История демо-обменов</h3>
+        <div id="history-list" style="display:flex;flex-direction:column;gap:10px">
+          <div style="color:var(--text-3);font-size:0.9rem">Обменов пока нет. Попробуйте рассчитать через калькулятор.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container"><div class="footer-bottom" style="border:none;padding-top:0"><span>© 2024 CRYPTOLINK. Демо-обменник.</span><span>Курсы симулированы. Не является финансовой рекомендацией.</span></div></div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+const rates = { USDT:1, BTC:67432.18, ETH:3521.44, SOL:172.38 };
+const feePct = 0.005;
+
+function recalc() {
+  const amount = parseFloat(document.getElementById('send-amount').value) || 0;
+  const from = document.getElementById('send-currency').value;
+  const to = document.getElementById('recv-currency').value;
+  if (amount < 0) { document.getElementById('send-err').classList.add('show'); return; }
+  document.getElementById('send-err').classList.remove('show');
+  const usdValue = amount * rates[from];
+  const fee = usdValue * feePct;
+  const receive = (usdValue - fee) / rates[to];
+  const rate = rates[from] / rates[to];
+  document.getElementById('recv-amount').value = receive.toFixed(6);
+  document.getElementById('rate-display').textContent = '1 ' + from + ' = ' + rate.toFixed(6) + ' ' + to;
+  document.getElementById('fee-display').textContent = fmtUSD(fee, 4);
+}
+
+function doExchange() {
+  const amount = parseFloat(document.getElementById('send-amount').value);
+  if (!amount || amount <= 0) { document.getElementById('send-err').classList.add('show'); return; }
+  const from = document.getElementById('send-currency').value;
+  const to = document.getElementById('recv-currency').value;
+  const receive = document.getElementById('recv-amount').value;
+  const list = document.getElementById('history-list');
+  if (list.children.length === 1 && list.children[0].textContent.includes('Обменов пока нет')) list.innerHTML = '';
+  const row = document.createElement('div');
+  row.style.cssText = 'display:flex;justify-content:space-between;padding:12px;border-radius:10px;background:var(--bg-3);font-size:0.88rem';
+  row.innerHTML = `<div><span style="color:var(--green);font-weight:700">${amount} ${from}</span> → <span style="font-weight:700">${Number(receive).toFixed(4)} ${to}</span></div><div style="color:var(--text-3);font-size:0.78rem">${new Date().toLocaleTimeString('ru-RU')}</div>`;
+  list.prepend(row);
+  toast('Демо-обмен завершен. Реальные средства не перемещались.');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  ['send-amount','send-currency','recv-currency'].forEach(id => document.getElementById(id).addEventListener('input', recalc));
+  recalc();
+});
+</script>
+</body>
+</html>
